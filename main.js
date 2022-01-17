@@ -1,13 +1,3 @@
-const d = "DgpkDwsADxAMABENABIORgdnANoVywAAAAAWzAAA";
-
-var buf = Buffer.from(d, "base64");
-
-console.log(buf);
-console.log("");
-buf.forEach((b, i) => console.log("[" + i + "]", b));
-console.log("");
-console.log("");
-
 function Decode(fPort, bytes, variables) {
   // Battery Level
   // 0 - 100%
@@ -72,6 +62,7 @@ function Int8(v) {
   var ref = UInt8(v);
   return ref > 0x7f ? ref - 0x100 : ref;
 }
+
 var UInt16 = function (value) {
   return value & 0xffff;
 };
@@ -81,8 +72,3 @@ var Int16 = function (value) {
   return ref > 0x7fff ? ref - 0x10000 : ref;
 };
 
-console.log(Int8(224));
-
-var result = Decode(null, buf, null);
-
-console.log(result);
